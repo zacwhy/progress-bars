@@ -1,15 +1,18 @@
 'use strict';
 
-const mockData = {
-  buttons: [10, 38, -13, -18],
-  bars: [62, 45, 62],
-  limit: 230
-};
+// const mockData = {
+//   buttons: [10, 38, -13, -18],
+//   bars: [62, 45, 62],
+//   limit: 230
+// };
 
-// const url = 'https://pb-api.herokuapp.com/bars';
+// Promise.resolve(mockData)
+//   .then(loadProgressBars);
 
-Promise.resolve(mockData)
-  // fetch(url).then(res => res.json())
+const url = 'https://pb-api.herokuapp.com/bars';
+
+fetch(url)
+  .then(res => res.json())
   .then(loadProgressBars);
 
 function loadProgressBars(data) {
