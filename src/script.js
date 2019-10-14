@@ -32,10 +32,8 @@ function createProgressBars(limit, barValues, buttonAmounts) {
   const container = document.createElement('div');
   container.classList.add('container');
 
-  const bars = barValues.map(value => createProgress(limit, value));
-
   const progressSelector = document.createElement('select');
-  bars.forEach((_, i) => {
+  barValues.forEach((_, i) => {
     const option = document.createElement('option');
     option.innerText = 'Progress ' + (i + 1);
     progressSelector.appendChild(option);
@@ -45,6 +43,7 @@ function createProgressBars(limit, barValues, buttonAmounts) {
   selectContainer.classList.add('select');
   container.appendChild(selectContainer);
 
+  const bars = barValues.map(value => createProgress(limit, value));
   bars.forEach(bar => container.appendChild(bar.element));
 
   const buttons = document.createElement('div');
